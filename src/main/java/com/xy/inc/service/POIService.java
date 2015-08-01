@@ -6,22 +6,23 @@
 package com.xy.inc.service;
 
 import com.xy.inc.model.POI;
-import com.xy.inc.repository.POIRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.xy.inc.service.exception.ServiceException;
+import java.util.List;
 
 /**
  *
- * @author hugo
+ * @author Hugo
  */
-@Service
-public class POIService {
-	
-	@Autowired
-	private POIRepository poiRepository;
-	
-	public void save(POI poi){
-		poiRepository.save(poi);
-	}
-	
+public interface POIService {
+
+    POI save(POI poi) throws ServiceException;
+
+    POI findById(Long id) throws ServiceException;
+
+    List<POI> findAll() throws ServiceException;
+
+    void remove(Long id) throws ServiceException;
+
+    public List<POI> buscarPOISProximos(Integer coordenadaX, Integer coordenadaY, Integer distMax) throws ServiceException;
+
 }

@@ -17,11 +17,14 @@ import javax.persistence.Table;
 public class POI implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
 	private Long id;
+        @Column(name = "nome")
 	private String nome;
+        @Column(name = "coordenadaX")
 	private int coordenadaX;
+        @Column(name = "coordenadaY")
 	private int coordenadaY;
 
 	public Long getId() {
