@@ -147,5 +147,18 @@ public class POIServiceIT {
         }
             assertArrayEquals(poiNamesList.toArray(),new String[]{"Lanchonete","Joalheria","Pub","Supermercado"});
     }
+    
+    /**
+     * Test of buscarPOISProximos method, of class POIServiceImpl.
+     */
+    @Test(expected = ServiceException.class)
+    public void testBuscarPOISProximosException() throws ServiceException {
+        System.out.println("buscarPOISProximos");
+        Integer coordenadaX = 20;
+        Integer coordenadaY = null;
+        Integer distMax = 10;
+        instance.buscarPOISProximos(coordenadaX, coordenadaY, distMax);
+        
+    }
 
 }
