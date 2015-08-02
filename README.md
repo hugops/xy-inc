@@ -4,7 +4,7 @@ Servidor REST que possui serviços que executa operações básicas (CRUD) de po
 
 Tabela caminhos REST
 
-URI | Method | Descrição | Parametros | EX
+URI | Method | Descrição | Parametros | Exemplo
 --- | ------ | --------- | ---------- | ------
 xy-inc/poi | GET | Busca todos os POIs | - | xy-inc/poi
 xy-inc/poi/id | GET | Busca um POI pelo ID | - | xy-inc/poi/2
