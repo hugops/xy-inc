@@ -3,9 +3,11 @@ package com.xy.inc.service;
 import com.xy.inc.config.ApplicationContextTest;
 import com.xy.inc.model.POI;
 import com.xy.inc.service.exception.ServiceException;
-import com.xy.inc.service.impl.POIServiceImpl;
+import java.util.ArrayList;
 import java.util.List;
 import javax.transaction.Transactional;
+import org.hamcrest.CoreMatchers;
+import static org.hamcrest.CoreMatchers.is;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -33,6 +35,11 @@ public class POIServiceIT {
 
     @Before
     public void setUp() throws ServiceException {
+        
+        for(POI p : instance.findAll()){
+            instance.remove(p.getId());
+        }
+        
         poi = new POI();
         poi.setNome("Lanchonete");
         poi.setCoordenadaX(27);
@@ -130,13 +137,15 @@ public class POIServiceIT {
         Integer coordenadaX = 20;
         Integer coordenadaY = 10;
         Integer distMax = 10;
-        List<POI> expResult = null;
         List<POI> result = instance.buscarPOISProximos(coordenadaX, coordenadaY, distMax);
         
+          List<String> poiNamesList = new ArrayList<>();
+          
         for(POI s : result){
             System.out.println(s.getNome());
+            poiNamesList.add(s.getNome());
         }
-        assertTrue(result.isEmpty());
+            assertArrayEquals(poiNamesList.toArray(),new String[]{"Lanchonete","Joalheria","Pub","Supermercado"});
     }
 
 }
