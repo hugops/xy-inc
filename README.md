@@ -14,5 +14,3 @@ xy-inc/poi/proximidade | GET | Busca todos os POIs que estejam a uma distância 
 
 
 O banco de dados utilizado é o MySql e os scripts estão na pasta SQL
-
-Está funcionando no servidor http://petruccicam.no-ip.org:8081/xy-inc
